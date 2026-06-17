@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ansa — The AI receptionist for local service businesses</title>
+  <meta name="description" content="Ansa is an AI receptionist that lives on your website. It answers customer questions from your own site, captures every lead — name, phone, service — and texts it to you before they call a competitor. One line of code." />
+  <meta property="og:title" content="Ansa — Turn website visitors into booked jobs" />
+  <meta property="og:description" content="An AI receptionist trained on your website. Answers 24/7, captures leads, books jobs. One line of code to install." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@600;700;800&family=Outfit:wght@400;500;600;700;800&family=Instrument+Serif:ital@1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64' fill='none'><rect width='64' height='64' rx='15' fill='%234f46e5'/><path d='M16 18h32a4 4 0 0 1 4 4v16a4 4 0 0 1-4 4H30l-9 8v-8h-5a4 4 0 0 1-4-4V22a4 4 0 0 1 4-4z' fill='white'/><circle cx='25' cy='30' r='2.6' fill='%234f46e5'/><circle cx='33' cy='30' r='2.6' fill='%234f46e5'/><circle cx='41' cy='30' r='2.6' fill='%234f46e5'/></svg>" />
+</head>
+<body>
+  <div class="site-grid" aria-hidden="true"></div>
+
+  <!-- ── Nav ─────────────────────────────────────────────── -->
+  <header class="nav" id="nav">
+    <div class="nav-inner">
+      <a class="logo" href="#top" aria-label="Ansa home">
+        <svg class="logo-mark" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+          <path d="M16 16h32a6 6 0 0 1 6 6v16a6 6 0 0 1-6 6H32l-11 9v-9h-5a6 6 0 0 1-6-6V22a6 6 0 0 1 6-6z" stroke="currentColor" stroke-width="5"/>
+          <circle cx="25" cy="30" r="3" fill="currentColor"/>
+          <circle cx="33" cy="30" r="3" fill="currentColor"/>
+          <circle cx="41" cy="30" r="3" fill="currentColor"/>
+        </svg>
+        <span class="logo-text">ansa</span>
+      </a>
+      <nav class="nav-links">
+        <a href="#how">How it works</a>
+        <a href="#features">Features</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+      <div class="nav-cta">
+        <a class="nav-demo" href="#" data-ansa-open>Live demo</a>
+        <a class="btn btn-small magnetic" href="#" data-ansa-book><span>Book a demo</span></a>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <!-- ── Hero ──────────────────────────────────────────── -->
+    <section class="hero">
+      <div class="hero-bg" aria-hidden="true"></div>
+
+      <div class="hero-copy">
+        <p class="eyebrow stagger" style="--d:0"><span class="pulse-dot"></span>AI receptionist · for local service businesses</p>
+        <h1>
+          <span class="w stagger" style="--d:1">Turn website visitors</span>
+          <span class="w stagger" style="--d:2">into <span class="serif">booked jobs.</span></span>
+        </h1>
+        <p class="sub stagger" style="--d:3">
+          Ansa is an AI receptionist that lives on your site. It answers customer
+          questions from <em>your own pages</em>, then captures their name, phone, and
+          service request — and texts it to you before they call the next guy.
+        </p>
+        <div class="hero-cta stagger" style="--d:4">
+          <a class="btn btn-primary magnetic" href="#" data-ansa-open><span>Try the live demo</span></a>
+          <a class="btn btn-ghost magnetic" href="#how"><span>How it works</span></a>
+        </div>
+        <p class="hero-note stagger" style="--d:5">The chat bubble in the corner is Ansa, live. Ask it anything — or book a demo.</p>
+        <div class="trustrow stagger" style="--d:6" aria-label="Industries served">
+          <span class="tr-label">Built for</span>
+          <span class="tr-item">HVAC</span>
+          <span class="tr-item">Plumbing</span>
+          <span class="tr-item">Electrical</span>
+          <span class="tr-item">Roofing</span>
+          <span class="tr-item">Dental</span>
+        </div>
+      </div>
+
+      <!-- Live chat widget mock + floating proof chip -->
+      <div class="hero-stage stagger" style="--d:3">
+        <div class="widget-float" id="widget-float">
+          <div class="wm">
+            <div class="wm-head">
+              <span class="wm-avatar">
+                <svg viewBox="0 0 64 64" fill="none" aria-hidden="true">
+                  <path d="M16 16h32a6 6 0 0 1 6 6v16a6 6 0 0 1-6 6H32l-11 9v-9h-5a6 6 0 0 1-6-6V22a6 6 0 0 1 6-6z" fill="currentColor"/>
+                  <circle cx="25" cy="30" r="3" fill="#fff"/><circle cx="33" cy="30" r="3" fill="#fff"/><circle cx="41" cy="30" r="3" fill="#fff"/>
+                </svg>
+              </span>
+              <span class="wm-head-text">
+                <b>Comfort Air Co.</b>
+                <i><span class="wm-on"></span>Replies instantly</i>
+              </span>
+            </div>
+            <div class="wm-body" id="wm-body"><!-- messages injected by js --></div>
+            <div class="wm-input">
+              <span class="wm-input-ph" id="wm-ph">Ask about pricing, hours, service area…</span>
+              <span class="wm-send">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 6l6 6-6 6"/></svg>
+              </span>
+            </div>
+          </div>
+
+          <div class="lead-chip" id="lead-chip">
+            <span class="lead-chip-ic">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4 10-11"/></svg>
+            </span>
+            <span class="lead-chip-body">
+              <b>New lead captured</b>
+              <i>Sarah · (512) 555-0148 · AC repair</i>
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Stat ticker ───────────────────────────────────── -->
+    <section class="ticker" aria-hidden="true">
+      <div class="ticker-track" id="ticker">
+        <div class="ticker-strip">
+          <span>78% hire whoever replies first</span><i>◆</i>
+          <span>Answers from your own website</span><i>◆</i>
+          <span>Captures name · phone · service</span><i>◆</i>
+          <span>Texts you the lead in seconds</span><i>◆</i>
+          <span>Works 24/7, even after hours</span><i>◆</i>
+          <span>HVAC · Plumbing · Electrical · Roofing · Dental</span><i>◆</i>
+          <span>One line of code to install</span><i>◆</i>
+          <span>No app · No new phone number</span><i>◆</i>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Problem ───────────────────────────────────────── -->
+    <section class="problem">
+      <div class="section-head reveal center">
+        <span class="index">01</span>
+        <h2>Every missed message<br/><span class="muted">is a missed job.</span></h2>
+        <p class="head-note">The average local business misses 1 in 3 inbound leads — nights, weekends, and while you're on a job.</p>
+      </div>
+
+      <div class="prob-grid">
+        <div class="prob-card bad reveal" style="--rd:0">
+          <span class="prob-tag">Without Ansa</span>
+          <ul class="prob-list">
+            <li>Visitor lands at 9pm, finds a phone number</li>
+            <li>Nobody answers — it's after hours</li>
+            <li>They hit the back button</li>
+            <li>They call the next plumber on Google</li>
+            <li class="lost">Job lost · you never knew they existed</li>
+          </ul>
+        </div>
+        <div class="prob-arrow reveal" style="--rd:1" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </div>
+        <div class="prob-card good reveal" style="--rd:2">
+          <span class="prob-tag">With Ansa</span>
+          <ul class="prob-list">
+            <li>Visitor lands at 9pm, chat says hi</li>
+            <li>Ansa answers from your site instantly</li>
+            <li>It collects name, phone &amp; the problem</li>
+            <li>You get a text: "New lead — AC repair"</li>
+            <li class="won">You call back first · you win the job</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── How it works ──────────────────────────────────── -->
+    <section class="how" id="how">
+      <div class="section-head reveal">
+        <span class="index">02</span>
+        <h2>Live on your site<br/><span class="muted">in three steps.</span></h2>
+      </div>
+
+      <div class="steps">
+        <div class="step reveal" style="--rd:0">
+          <span class="step-n">1</span>
+          <div class="step-visual step-scan">
+            <div class="sv-url"><span class="sv-dot"></span>comfortair.com</div>
+            <div class="sv-lines"><i style="width:88%"></i><i style="width:64%"></i><i style="width:77%"></i><i style="width:40%"></i></div>
+            <div class="sv-pill">Reading 14 pages…</div>
+          </div>
+          <h3>Point Ansa at your website</h3>
+          <p>Give us your URL. Ansa scrapes your hours, services, pricing, and service area once — no content to write, no documents to upload.</p>
+        </div>
+
+        <div class="step reveal" style="--rd:1">
+          <span class="step-n">2</span>
+          <div class="step-visual step-brain">
+            <div class="sb-kb">
+              <div class="sb-row"><span class="sb-k">Hours</span><span class="sb-v">Mon–Sat 7–7</span></div>
+              <div class="sb-row"><span class="sb-k">Service area</span><span class="sb-v">Austin + 30mi</span></div>
+              <div class="sb-row"><span class="sb-k">AC repair</span><span class="sb-v">from $89</span></div>
+              <div class="sb-row"><span class="sb-k">Emergency</span><span class="sb-v">24/7 callout</span></div>
+            </div>
+            <div class="sb-badge">Knowledge base ready</div>
+          </div>
+          <h3>It learns your business</h3>
+          <p>Your pages become a private knowledge base. Ansa answers only from <em>your</em> facts — never makes up prices or promises you didn't.</p>
+        </div>
+
+        <div class="step reveal" style="--rd:2">
+          <span class="step-n">3</span>
+          <div class="step-visual step-embed">
+            <div class="se-code">
+              <span class="se-comment">&lt;!-- paste before &lt;/body&gt; --&gt;</span>
+              <span class="se-line"><span class="se-tag">&lt;script</span> <span class="se-attr">src</span>=<span class="se-str">"ansa.ai/w.js"</span></span>
+              <span class="se-line">&nbsp;&nbsp;<span class="se-attr">data-id</span>=<span class="se-str">"comfort_air"</span><span class="se-tag">&gt;&lt;/script&gt;</span></span>
+            </div>
+            <div class="se-copied"><span class="se-check">✓</span> Widget live</div>
+          </div>
+          <h3>Embed one line of code</h3>
+          <p>Paste a single script tag — or we install it for you. Works on WordPress, Wix, Squarespace, Webflow, GoDaddy, anything.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Features bento ────────────────────────────────── -->
+    <section class="features" id="features">
+      <div class="section-head reveal">
+        <span class="index">03</span>
+        <h2>Not a chatbot.<br/><span class="muted">A receptionist that books work.</span></h2>
+      </div>
+
+      <div class="bento">
+        <!-- big: lead capture -->
+        <div class="cell cell-lead reveal">
+          <span class="cell-eyebrow">The whole point</span>
+          <h3>Captures the lead, not just the chat</h3>
+          <p>The moment a visitor shows intent, Ansa naturally asks for name, phone, email and the job — then delivers it to you instantly.</p>
+          <div class="lead-flow">
+            <div class="lf-card">
+              <div class="lf-field"><span>Name</span><b>Sarah Whitman</b></div>
+              <div class="lf-field"><span>Phone</span><b>(512) 555-0148</b></div>
+              <div class="lf-field"><span>Service</span><b>AC not cooling</b></div>
+              <div class="lf-field"><span>When</span><b>ASAP / today</b></div>
+            </div>
+            <div class="lf-rail">
+              <span class="lf-dest"><i class="lf-ic sheet"></i>Google Sheets</span>
+              <span class="lf-dest"><i class="lf-ic mail"></i>Email</span>
+              <span class="lf-dest"><i class="lf-ic sms"></i>SMS text</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="cell cell-sm reveal" style="--rd:1">
+          <span class="cell-ic">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v11H8l-4 4z"/><path d="M8 9h8M8 12h5"/></svg>
+          </span>
+          <h3>Answers from your site</h3>
+          <p>Hours, pricing, service area, brands you carry — grounded in your own pages, not the open internet.</p>
+        </div>
+
+        <div class="cell cell-sm reveal" style="--rd:2">
+          <span class="cell-ic">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v2M12 19v2M5 12H3M21 12h-2M6 6l-1.4-1.4M19.4 19.4 18 18"/><circle cx="12" cy="12" r="5"/></svg>
+          </span>
+          <h3>Never sleeps</h3>
+          <p>Nights, weekends, holidays, while you're under a sink — Ansa is on. After-hours is where most leads are won.</p>
+        </div>
+
+        <div class="cell cell-sm reveal" style="--rd:1">
+          <span class="cell-ic">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 9h18M8 3v4M16 3v4"/><path d="M8 14l2.5 2.5L15 12" /></svg>
+          </span>
+          <h3>Books appointments</h3>
+          <p>Collects preferred times, or connects to Cal.com so customers self-book a slot right inside the chat.</p>
+        </div>
+
+        <div class="cell cell-sm reveal" style="--rd:2">
+          <span class="cell-ic">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7l8 5 8-5"/><rect x="4" y="5" width="16" height="14" rx="2"/></svg>
+          </span>
+          <h3>Instant alerts</h3>
+          <p>Every lead lands in your inbox, a text, and a Google Sheet the second it's captured. No dashboard to babysit.</p>
+        </div>
+
+        <div class="cell cell-wide reveal" style="--rd:0">
+          <div class="cell-wide-text">
+            <span class="cell-ic">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 9l-4 3 4 3M16 9l4 3-4 3M13 6l-2 12"/></svg>
+            </span>
+            <h3>One line to install</h3>
+            <p>Paste a script tag and you're done. Matches your brand colors. No developer, no plugins, no new phone number — it rides on your existing site.</p>
+          </div>
+          <div class="cell-wide-code">
+            <div class="cwc-bar"><i></i><i></i><i></i></div>
+            <code><span class="se-tag">&lt;script</span> <span class="se-attr">src</span>=<span class="se-str">"https://ansa.ai/w.js"</span>
+  <span class="se-attr">data-id</span>=<span class="se-str">"your_business"</span><span class="se-tag">&gt;&lt;/script&gt;</span></code>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── ROI band ──────────────────────────────────────── -->
+    <section class="roi">
+      <div class="roi-inner reveal">
+        <div class="roi-head">
+          <span class="index">04</span>
+          <h2>One saved job pays<br/><span class="muted">for the whole year.</span></h2>
+        </div>
+        <div class="roi-stats">
+          <div class="roi-stat">
+            <b class="count" data-target="247" data-prefix="$">$0</b>
+            <span>Avg HVAC service ticket</span>
+          </div>
+          <div class="roi-stat">
+            <b class="count" data-target="35" data-suffix="%">0%</b>
+            <span>Of leads come after hours</span>
+          </div>
+          <div class="roi-stat">
+            <b class="count" data-target="5" data-suffix="min">0</b>
+            <span>Reply window before they move on</span>
+          </div>
+          <div class="roi-stat hl">
+            <b class="count" data-target="24" data-suffix="/7">0</b>
+            <span>Hours Ansa is on the clock</span>
+          </div>
+        </div>
+        <p class="roi-foot">Capture just <b>one</b> extra job a month and Ansa pays for itself several times over. Everything after that is profit you were already leaving on the table.</p>
+      </div>
+    </section>
+
+    <!-- ── Pricing ───────────────────────────────────────── -->
+    <section class="pricing" id="pricing">
+      <div class="section-head reveal center">
+        <span class="index">05</span>
+        <h2>Simple, flat pricing.<br/><span class="muted">No setup fees. Cancel anytime.</span></h2>
+        <p class="head-note">Done-for-you setup included on every plan. We point it at your site and hand you a working widget.</p>
+      </div>
+
+      <div class="plans">
+        <div class="plan reveal" style="--rd:0">
+          <span class="plan-name">Starter</span>
+          <p class="plan-for">Solo operators &amp; new sites</p>
+          <div class="plan-price"><span class="pp-cur">$</span><span class="pp-amt">129</span><span class="pp-per">/mo</span></div>
+          <ul class="plan-feats">
+            <li>AI receptionist on your site</li>
+            <li>Trained on your website + extra info you add</li>
+            <li>Auto-tagged lead capture → email + Sheet</li>
+            <li>Up to 300 conversations / mo</li>
+            <li>Email support</li>
+          </ul>
+          <a class="btn btn-ghost full magnetic" href="#start"><span>Start with Starter</span></a>
+        </div>
+
+        <div class="plan featured reveal" style="--rd:1">
+          <span class="plan-flag">Most popular</span>
+          <span class="plan-name">Pro</span>
+          <p class="plan-for">Established service businesses</p>
+          <div class="plan-price"><span class="pp-cur">$</span><span class="pp-amt">249</span><span class="pp-per">/mo</span></div>
+          <ul class="plan-feats">
+            <li><b>Everything in Starter, plus</b></li>
+            <li>SMS lead alerts to your phone</li>
+            <li>Appointment booking (Cal.com)</li>
+            <li>Leads auto-sorted by service &amp; urgency</li>
+            <li>Up to 1,500 conversations / mo</li>
+            <li>Custom branding &amp; priority support</li>
+          </ul>
+          <a class="btn btn-primary full magnetic" href="#start"><span>Book a demo</span></a>
+        </div>
+
+        <div class="plan reveal" style="--rd:2">
+          <span class="plan-name">Growth</span>
+          <p class="plan-for">Multi-location &amp; franchises</p>
+          <div class="plan-price"><span class="pp-cur">$</span><span class="pp-amt">499</span><span class="pp-per">/mo</span></div>
+          <ul class="plan-feats">
+            <li><b>Everything in Pro, plus</b></li>
+            <li>Multiple locations / sites</li>
+            <li>CRM &amp; webhook integrations</li>
+            <li>Unlimited conversations</li>
+            <li>Dedicated onboarding</li>
+          </ul>
+          <a class="btn btn-ghost full magnetic" href="#start"><span>Talk to us</span></a>
+        </div>
+      </div>
+      <p class="plans-note reveal">Optional one-time setup $299 (often waived for early clients). Add-on: <b>Website tune-up &amp; landing page</b> to turn more visitors into leads. A single annual plan often equals less than one missed job.</p>
+    </section>
+
+    <!-- ── FAQ ───────────────────────────────────────────── -->
+    <section class="faq" id="faq">
+      <div class="section-head reveal">
+        <span class="index">06</span>
+        <h2>Questions,<br/><span class="muted">answered.</span></h2>
+      </div>
+
+      <div class="faq-list reveal">
+        <details class="faq-item">
+          <summary>Do I need to write any content or train it myself?<span class="faq-x"></span></summary>
+          <p>No. You give us your website URL and we do the rest — Ansa reads your existing pages and builds the knowledge base automatically. If something's missing from your site, you can add a few notes, but most businesses are live without writing a word.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Will it make up prices or promises?<span class="faq-x"></span></summary>
+          <p>Ansa answers from your own pages only. When it doesn't know something, it says so and offers to take the customer's details so you can follow up — instead of guessing. That's the difference between a receptionist and a generic chatbot.</p>
+        </details>
+        <details class="faq-item">
+          <summary>How do I get the leads?<span class="faq-x"></span></summary>
+          <p>However you want them: an instant email, a text to your phone, and a row in a Google Sheet — all at once, the second a lead is captured. On higher plans we can push them to your CRM or any tool via webhook.</p>
+        </details>
+        <details class="faq-item">
+          <summary>What does it take to install?<span class="faq-x"></span></summary>
+          <p>One line of code pasted before the closing <code>&lt;/body&gt;</code> tag — or we install it for you for free. It works on WordPress, Wix, Squarespace, Webflow, GoDaddy, Shopify and custom sites.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Can it book appointments?<span class="faq-x"></span></summary>
+          <p>Yes. Out of the box it collects preferred days and times with the lead. On Pro and up it connects to Cal.com so customers can pick a real slot right inside the chat.</p>
+        </details>
+        <details class="faq-item">
+          <summary>What if my website doesn't have everything?<span class="faq-x"></span></summary>
+          <p>That's common. During setup you can add extra facts — pricing, FAQs, service details — and Ansa uses those alongside your pages. If your site is genuinely thin, we also offer a <b>website tune-up / landing page</b> add-on so there's more for visitors to convert on.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Is it secure? Can it be misused?<span class="faq-x"></span></summary>
+          <p>Yes. The assistant is locked to your business — it stays on topic, refuses off-topic or trick prompts, and never exposes any keys or internal data (those live on a secure server, never in the website). It's safe to run on any site, including static hosts.</p>
+        </details>
+        <details class="faq-item">
+          <summary>How fast can I be live?<span class="faq-x"></span></summary>
+          <p>Usually within a day. We point Ansa at your site, tune the greeting, send you the snippet, and you're capturing leads the same afternoon.</p>
+        </details>
+      </div>
+    </section>
+
+    <!-- ── Final CTA ─────────────────────────────────────── -->
+    <section class="cta" id="start">
+      <div class="cta-card reveal">
+        <svg class="cta-mark" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+          <path d="M16 16h32a6 6 0 0 1 6 6v16a6 6 0 0 1-6 6H32l-11 9v-9h-5a6 6 0 0 1-6-6V22a6 6 0 0 1 6-6z" stroke="currentColor" stroke-width="5"/>
+          <circle cx="25" cy="30" r="3" fill="currentColor"/><circle cx="33" cy="30" r="3" fill="currentColor"/><circle cx="41" cy="30" r="3" fill="currentColor"/>
+        </svg>
+        <h2>Stop losing leads after hours.</h2>
+        <p class="sub">See Ansa answer real questions and capture a lead live — then we'll put it on your site. Setup is on us.</p>
+        <div class="cta-form">
+          <a class="btn btn-primary magnetic" href="#" data-ansa-book><span>Book a demo</span></a>
+          <a class="btn btn-ghost magnetic" href="#" data-ansa-open><span>Chat with Ansa</span></a>
+        </div>
+        <p class="cta-msg" role="status">The chat opens bottom-right — that's the real Ansa, answering live.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <span class="footer-brand">
+        <svg class="footer-mark" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+          <path d="M16 16h32a6 6 0 0 1 6 6v16a6 6 0 0 1-6 6H32l-11 9v-9h-5a6 6 0 0 1-6-6V22a6 6 0 0 1 6-6z" stroke="currentColor" stroke-width="5"/>
+          <circle cx="25" cy="30" r="3" fill="currentColor"/><circle cx="33" cy="30" r="3" fill="currentColor"/><circle cx="41" cy="30" r="3" fill="currentColor"/>
+        </svg>
+        <span class="logo-text small">ansa</span>
+      </span>
+      <nav class="footer-links">
+        <a href="#how">How it works</a>
+        <a href="#features">Features</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#" data-ansa-open>Live demo</a>
+      </nav>
+      <span class="footer-note">© 2026 Ansa · The AI receptionist for local service businesses</span>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       Ansa, live on its own site. This chat IS the demo — the exact
+       one-line snippet a customer pastes on their own website.
+
+       Default (no LLM endpoint): answers via the bundled knowledge
+       base + local retrieval. Safe for GitHub Pages, nothing exposed.
+
+       Real LLM (OpenRouter):  deploy /server, then add
+         data-llm-endpoint="https://your-proxy.workers.dev/chat"
+       The key stays on the proxy; if it's ever down, the widget
+       falls back to local retrieval automatically.
+
+       Real booking:   data-cal="yourname/your-event"   (Cal.com)
+       Forward leads:  data-webhook="https://hooks.zapier.com/..."
+       Extra facts:    data-kb="your-extra-knowledge.json"
+       ═══════════════════════════════════════════════════════════ -->
+  <script
+    src="widget.js"
+    data-id="ansa"
+    data-name="Ansa"
+    data-accent="#4f46e5"
+    data-greeting="Hi! I'm Ansa — the AI receptionist this whole site is about. Ask me anything, or I'll book you a quick demo. (Yes, this is me, working live.)"
+  ></script>
+</body>
+</html>

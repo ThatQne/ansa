@@ -1,0 +1,14 @@
+# This repo publishes ONLY the website. The backend, guide, and docs
+# stay local (and out of GitHub Pages). Keep them out of the repo:
+server/
+guide/
+docs/
+publish.ps1
+publish.sh
+
+# local / generated
+node_modules/
+*.log
+.env
+.DS_Store
+Thumbs.db
